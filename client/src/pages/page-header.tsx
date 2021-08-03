@@ -6,18 +6,14 @@ import {
     useHistory,
 } from 'react-router-dom';
 
-export default function MainPage() {
-    const history = useHistory();
-    const goHome = () => history.push('/');
-
-    const Wrapper = styled.div`
+const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
         width: 710px;
         margin: 0 105px;
     `;
 
-    const Header = styled.h1`
+const Header = styled.h1`
         display:flex;
         font-family: 'Niconne', sans-serif;
         color: #2b9348;
@@ -27,7 +23,7 @@ export default function MainPage() {
         margin: 0;
     `;
 
-    const Byline = styled.div`
+const Byline = styled.div`
         display:flex;
         font-family: 'Itim';
         color: #2b9348;
@@ -36,10 +32,14 @@ export default function MainPage() {
         padding: 0.4em 0.4em 0 0.4em;
     `;
 
-    const Divider = styled.div`
+const Divider = styled.div`
         margin: 2em 0;
         border-bottom: 3px solid #dde6d6;
     `;
+
+export default function PageHeader() {
+    const history = useHistory();
+    const goHome = () => history.push('/');
 
     return (
         <Wrapper onClick={goHome}>

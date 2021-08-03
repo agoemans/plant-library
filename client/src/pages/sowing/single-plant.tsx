@@ -5,6 +5,7 @@ import PlantAttributes from "../plant-attributes";
 import styled, { keyframes } from 'styled-components';
 import { bounce, zoomIn } from 'react-animations';
 import {useHistory} from "react-router-dom";
+import PageFooter from "../shared/page-footer";
 
 export default function SinglePlant(props: any) {
     const [moveLeft, setSlideLeft] = React.useState(false);
@@ -77,7 +78,7 @@ export default function SinglePlant(props: any) {
                     )}
                 <BackButton onClick={back}>BACK</BackButton>
             </Wrapper>
-            <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <PageFooter aName='iconixar' aUrl='https://www.flaticon.com/authors/iconixar' sUrl='https://www.flaticon.com/' sName='Flaticon'/>
         </ZoomInDiv>
     );
 }

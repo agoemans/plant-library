@@ -7,11 +7,11 @@ import {
     BrowserRouter as Router
 } from 'react-router-dom';
 
-import MainPage from './pages/main-page';
-import Content from './pages/content';
+import PageHeader from './pages/page-header';
 import SowingGuide from './pages/sowing/sowing-guide';
 import SinglePlant from './pages/sowing/single-plant';
 import PlantCalendar from './pages/calendar/plant-calendar';
+import MainPageContent from "./pages/main-page-content";
 
 export const App = () => {
     const [hasError, setErrors] = useState(false);
@@ -20,7 +20,7 @@ export const App = () => {
         <Router>
             <div className='app'>
                 <div className='app-content'>
-                    <MainPage/>
+                    <PageHeader/>
                     <Switch>
                         <Route path='/sowing'>
                             <SowingGuide/>
@@ -32,7 +32,7 @@ export const App = () => {
                             <PlantCalendar/>
                         </Route>
                         <Route path='/'>
-                            <Content/>
+                            <MainPageContent/>
                         </Route>
                     </Switch>
                 </div>

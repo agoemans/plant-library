@@ -4,16 +4,13 @@ import styled, { keyframes } from 'styled-components';
 import { bounce, zoomIn } from 'react-animations';
 import Months from './months';
 
-export default function PlantSlot(props: any) {
-    const {name, icon, sun, water, germination, spacing} = props;
-
-    const Wrapper = styled.section`
+const Wrapper = styled.section`
       display: flex;
       flex-direction: row;
        border: 1px solid darkgray;
     `;
 
-    const PlantDiv = styled.div`
+const PlantDiv = styled.div`
         display: flex;
         border-right: 1px solid darkgray;
         padding: 10px;
@@ -22,7 +19,7 @@ export default function PlantSlot(props: any) {
 
     `;
 
-    const ImageDiv = styled(PlantDiv)`
+const ImageDiv = styled(PlantDiv)`
       background-image: 80%;
       background-size: contain;
       background-repeat: no-repeat;
@@ -31,7 +28,7 @@ export default function PlantSlot(props: any) {
       flex: 0 0 50px;
     `;
 
-    const BorderedText = styled.div`
+const BorderedText = styled.div`
       font-size: 1.5em;
       text-align: center;
       color: white;
@@ -46,7 +43,7 @@ export default function PlantSlot(props: any) {
       font-family: 'Mukta', sans-serif;
     `;
 
-    const LabelIcon = styled(ImageDiv)`
+const LabelIcon = styled(ImageDiv)`
         border: 2px solid #3c6500;
         border-radius: 50%;
         max-width: 30px;
@@ -54,7 +51,7 @@ export default function PlantSlot(props: any) {
         padding: 2px;
     `;
 
-    const LabelText = styled.div`
+const LabelText = styled.div`
         display: flex;
         width: 20px;
         height: 20px;
@@ -64,13 +61,16 @@ export default function PlantSlot(props: any) {
         margin-left: 10px;
     `;
 
-    const MonthWrapper = styled.div`
+const MonthWrapper = styled.div`
         display: flex;
         flex-direction: column;
         padding: 10px;
         background: #f5f5f5;
         border-right: 1px solid darkgray;
     `;
+
+export default function PlantSlot(props: any) {
+    const {name, icon, sun, water, germination, spacing} = props;
 
     return (
         <Wrapper className='plant-slot-container'>

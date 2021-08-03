@@ -7,6 +7,22 @@ import {
 
 import styled, { keyframes } from 'styled-components';
 import { bounce, zoomIn } from 'react-animations';
+import {Content} from "../shared/styles";
+
+const Wrapper = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `;
+
+const SowingContent = styled.div`
+      flex-direction: row;
+      display: flex;
+      margin: 5px;
+      flex-wrap: wrap;
+      width: 500px;
+      justify-content: center;
+`;
 
 export default function SowingGuide() {
     const [moveLeft, setSlideLeft] = React.useState(false);
@@ -32,16 +48,16 @@ export default function SowingGuide() {
 
 
     return (
-        <div className='sowing-container'>
-                <div className='plant-container'>
-                    {menuItems.map(( a: any, idx: number) =>
-                        <ZoomInDiv key={idx} className='zoomin-container' style={{animationDelay: `${idx * 0.25}s`}}>
-                            <div key={idx} className='plant' onClick={a.cb}>
-                                {a.text}
-                            </div>
-                        </ZoomInDiv>
-                    )}
-                </div>
-        </div>
+        <Wrapper>
+            <SowingContent>
+                {menuItems.map(( a: any, idx: number) =>
+                    <ZoomInDiv key={idx} className='zoomin-container' style={{animationDelay: `${idx * 0.25}s`}}>
+                        <div key={idx} className='plant' onClick={a.cb}>
+                            {a.text}
+                        </div>
+                    </ZoomInDiv>
+                )}
+            </SowingContent>
+        </Wrapper>
     );
 }

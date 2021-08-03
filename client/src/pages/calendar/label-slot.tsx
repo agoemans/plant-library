@@ -4,15 +4,13 @@ import styled, { keyframes } from 'styled-components';
 import { bounce, zoomIn } from 'react-animations';
 import Months from './months';
 
-export default function LabelSlot() {
-
-    const Wrapper = styled.section`
+const Wrapper = styled.section`
       display: flex;
       flex-direction: row;
        border: 1px solid darkgray;
     `;
 
-    const LabelDiv = styled.div`
+const LabelDiv = styled.div`
         display: flex;
         border-right: 1px solid darkgray;
         padding: 10px;
@@ -23,6 +21,8 @@ export default function LabelSlot() {
         font-weight: bold;
 
     `;
+
+export default function LabelSlot() {
 
     const textLabels = [
         {name: 'name', width: 94},

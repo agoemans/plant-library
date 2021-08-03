@@ -4,6 +4,7 @@ body {
     display: flex;
     justify-content: center;
     color: #607744;
+    overflow: hidden;
 }
 
 .app-content {
@@ -47,20 +48,8 @@ body {
     display:flex;
 }
 
-.sowing-container, .plant-menu-item-container, .plant-menu-item {
+.plant-menu-item-container, .plant-menu-item {
     display:flex;
-}
-
-.sowing-container{
-    flex-direction: column;
-}
-
-.plant-container {
-    display: flex;
-    margin: 5px;
-    flex-wrap: wrap;
-    width: 500px;
-    justify-content: center;
 }
 
 .plant {

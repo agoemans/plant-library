@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import {
-    useHistory,
-} from 'react-router-dom';
 
 import PlantSlot from './plant-slot';
 import LabelSlot from './label-slot';
+import PageFooter from "../shared/page-footer";
 
+import {Content} from '../shared/styles'
 
-export default function PlantCalendar() {
-    const Wrapper = styled.div`
+const Wrapper = styled.div`
         width: 910px
     `;
 
-    const NavItemFooter = styled.div`
+const CalendarContent = styled(Content)`
+      flex:1;
+`;
+
+const NavItemFooter = styled.div`
         width: 200px;
         font-family: 'EB Garamond', serif;
         color: #607744;
@@ -26,6 +28,7 @@ export default function PlantCalendar() {
         margin-top: 2em;
     `;
 
+export default function PlantCalendar() {
     const plantItems = [
         {name: 'Basil', iImage: '../src/assets/spinach.png', sImage: '../src/assets/sun.png', wImage: '../src/assets/watering-can.png', spacing: '25', germination: '5-7'},
         {name: 'Dill', iImage: '../src/assets/spinach.png', sImage: '../src/assets/sun.png', wImage:'../src/assets/watering-can.png', spacing: '45', germination: '10-14'}
@@ -33,12 +36,14 @@ export default function PlantCalendar() {
 
     return (
         <Wrapper>
-            <LabelSlot/>
-            {plantItems.map(( a: any, idx: number) =>
-                <PlantSlot key={idx} icon={a.iImage} name={a.name} sun={a.sImage} water={a.wImage} germination={a.germination} spacing={a.spacing}/>
-            )}
-            <NavItemFooter>Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub">turkkub</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-            </NavItemFooter>
+            <CalendarContent>
+                <LabelSlot/>
+                {plantItems.map(( a: any, idx: number) =>
+                    <PlantSlot key={idx} icon={a.iImage} name={a.name} sun={a.sImage} water={a.wImage} germination={a.germination} spacing={a.spacing}/>
+                )}
+            </CalendarContent>
+
+            <PageFooter aName='turkkub' aUrl='https://www.flaticon.com/authors/turkkub' sUrl='https://www.flaticon.com/' sName='Flaticon'/>
         </Wrapper>
     );
 }

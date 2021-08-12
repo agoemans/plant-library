@@ -12,6 +12,7 @@ import SowingGuide from './pages/sowing/sowing-guide';
 import SinglePlant from './pages/sowing/single-plant';
 import PlantCalendar from './pages/calendar/plant-calendar';
 import MainPageContent from "./pages/main-page-content";
+import Plants from "./pages/sowing/plants";
 
 export const App = () => {
     const [hasError, setErrors] = useState(false);
@@ -26,7 +27,7 @@ export const App = () => {
                             <SowingGuide/>
                         </Route>
                         <Route path='/plant'>
-                            <SinglePlant/>
+                            <Plants/>
                         </Route>
                         <Route path='/calendar'>
                             <PlantCalendar/>

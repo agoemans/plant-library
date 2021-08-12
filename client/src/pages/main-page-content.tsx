@@ -71,7 +71,7 @@ export default function MainPageContent() {
         setShowCalendar(false);
         setSowGuide(true);
         setInsects(false);
-        history.push('/sowing');
+        history.push('/plant');
         console.log('clicked owing');
     };
 

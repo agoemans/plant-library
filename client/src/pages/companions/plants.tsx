@@ -7,7 +7,7 @@ const Wrapper = styled.div`
         flex-direction: column;
         padding: 10px;
         margin: 10px;
-        width: 660px;
+        //width: 660px;
         min-height: 75vh;
     `;
 
@@ -18,7 +18,7 @@ const OuterBox = styled.div`
 
 const PlantBox = styled.div`
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         padding: 10px;
         margin: 10px;
         background-color: #f3f3f3;
@@ -27,17 +27,15 @@ const PlantBox = styled.div`
 
 const TitleBox = styled.div`
         display: flex;
-        flex-direction: column;
-        width: 150px;
-        margin: 0 10px;        
+        flex-direction: column;        
+        margin: 0 10px 10px 10px;   
     `;
 
 const TitleText = styled.div`
         display: flex;
-        padding: 10px;
         margin: 10px;
         font-family: 'Laila', sans-serif;
-        font-size: 40px;
+        font-size: 34px;
         justify-content: center;
     `;
 
@@ -45,8 +43,7 @@ const TitleImage = styled.div`
         display: flex;
         padding: 10px;
         margin: 10px;
-        width: 100px;
-        height: 100px;
+        height: 60px;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;  
@@ -54,25 +51,29 @@ const TitleImage = styled.div`
 
 const AttributesBox = styled.div`
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex: 1;
     `;
 
 const Content = styled.div`
         display: flex;
         flex-direction: column;
-        padding: 15px;        
+        //padding: 15px;        
         font-family: 'Fjalla One', sans-serif;
         color: white;
         text-transform: uppercase;
+        min-width: 100px;
+        flex: 1 1 50%;
     `;
 
 const List = styled.li`
         display: flex;
         flex-direction: column;
-        margin: 10px 0;
+        //margin: 10px 0;
         align-items: center;
-        font-size: 24px;
+        font-size: 18px;
+        padding:15px;
+        border-bottom: 1px solid #f9f9f9;
     `;
 
 export default function Plants(props: any) {
@@ -96,12 +97,12 @@ export default function Plants(props: any) {
                         <TitleImage style={{ backgroundImage: `url(${a.image})` }}/>
                     </TitleBox>
                     <AttributesBox>
-                        <Content style={{ backgroundColor: '#6abd44', marginBottom: '1px'}}>
+                        <Content style={{ backgroundColor: '#6a994e', marginRight: '1px'}}>
                             {a.good.map((g: any, idx: number) =>
                                 <List key={idx}>{g}</List>
                             )}
                         </Content>
-                        <Content style={{ backgroundColor: '#f05131', flex: '1'}}>
+                        <Content style={{ backgroundColor: '#bc4749'}}>
                             {a.bad.map((g: any, idx: number) =>
                                 <List key={idx}>{g}</List>
                             )}

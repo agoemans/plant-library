@@ -11,8 +11,8 @@ const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
         padding: 10px;
-        margin: 10px;
-        width: 660px;
+        //margin: 10px;
+        //width: 660px;
         margin: 0 100px;
         min-height: 75vh;
     `;
@@ -41,7 +41,8 @@ const NavItemText = styled.div`
         padding: 10px;
         margin: 10px;
         align-items : center;
-        font-family: 'Itim', serif;
+        font-family: 'Itim';
+        font-size: 18px;
     `;
 
 const NavItemImg = styled.div`
@@ -71,7 +72,7 @@ export default function MainPageContent() {
         setShowCalendar(false);
         setSowGuide(true);
         setInsects(false);
-        history.push('/plant');
+        history.push('/companions');
         console.log('clicked owing');
     };
 
@@ -79,12 +80,13 @@ export default function MainPageContent() {
         setShowCalendar(false);
         setSowGuide(false);
         setInsects(true);
+        history.push('/rotation');
     };
 
     const menuItems = [
-        { text: 'Planting calendar', cb: () => {onClickCal();}, image: '../src/assets/calendar-guide.png'},
-        { text: 'Sowing Guide', cb: () => {onClickSow();}, image: '../src/assets/hat.png'},
-        { text: 'Luring insects', cb: () => {onClickInsects();}, image: '../src/assets/insects.png'},
+        { text: 'Planting calendar', cb: () => {onClickCal();}, image: '../src/assets/calendar.png'},
+        { text: 'Companion Plants', cb: () => {onClickSow();}, image: '../src/assets/compantion.png'},
+        { text: 'Crop Rotation', cb: () => {onClickInsects();}, image: '../src/assets/rotation.png'},
     ];
     return (
         <Wrapper>

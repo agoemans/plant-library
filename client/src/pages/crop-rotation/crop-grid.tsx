@@ -6,8 +6,8 @@ import YearlyPlots from "./yearly-plots";
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    margin: 10px;
+    //padding: 10px;
+    //margin: 10px;
     //max-width: 150px;  
 `;
 

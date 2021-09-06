@@ -6,6 +6,7 @@ import {
     useHistory,
 } from 'react-router-dom';
 import PageFooter from "../pages/shared/page-footer";
+import NavigationBar from "./navigation-bar";
 
 const Wrapper = styled.div`
         display: flex;

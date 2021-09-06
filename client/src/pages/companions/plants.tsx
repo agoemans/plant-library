@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import PageFooter from "../shared/page-footer";
+import {TitleText} from '../shared/styles';
 
 const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
-        padding: 10px;
-        margin: 10px;
+        //padding: 10px;
+        //margin: 10px;
         //width: 660px;
-        min-height: 75vh;
+        //min-height: 75vh;
     `;
 
 const OuterBox = styled.div`
@@ -31,13 +32,13 @@ const TitleBox = styled.div`
         margin: 0 10px 10px 10px;   
     `;
 
-const TitleText = styled.div`
-        display: flex;
-        margin: 10px;
-        font-family: 'Laila', sans-serif;
-        font-size: 34px;
-        justify-content: center;
-    `;
+// const TitleText = styled.div`
+//         display: flex;
+//         margin: 10px;
+//         font-family: 'Laila', sans-serif;
+//         font-size: 34px;
+//         justify-content: center;
+//     `;
 
 const TitleImage = styled.div`
         display: flex;
@@ -87,6 +88,7 @@ export default function Plants(props: any) {
 
     return (
         <Wrapper>
+            <TitleText>COMPANIONS</TitleText>
             <OuterBox>
             {attribs.map(( a: any, idx: number) =>
                 <PlantBox key={idx}>

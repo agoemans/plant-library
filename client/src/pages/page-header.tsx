@@ -7,18 +7,19 @@ import {
 } from 'react-router-dom';
 
 const Wrapper = styled.div`
-        display: flex;
-        flex-direction: column;
-        width: 710px;
-        margin: 0 105px;
+      display: flex;
+      flex-direction: row;
+      width: 710px;
+      margin: 0 10px;
+      padding: 10px;
     `;
 
-const Header = styled.h1`
+const Header = styled.div`
         display:flex;
         font-family: 'Niconne', sans-serif;
         color: #2b9348;
         justify-content: flex-start;
-        font-size: 84px;
+        font-size: 48px;
         font-weight: 100;
         margin: 0;
     `;
@@ -37,17 +38,27 @@ const Divider = styled.div`
         border-bottom: 3px solid #dde6d6;
     `;
 
+const Image = styled.div`
+    display: flex;
+    height: 48px;
+    width: 48px;
+    background-size: cover;
+    background-image: url('../../src/assets/header-icon.png');
+    background-repeat: no-repeat;
+    margin-right: 15px;
+    `;
+
 export default function PageHeader() {
     const history = useHistory();
     const goHome = () => history.push('/');
 
     return (
         <Wrapper onClick={goHome}>
+            <Image/>
             <Header>Planting Guide</Header>
-            <Byline>
-                Some notes about indoor and outdoor plants ...
-            </Byline>
-            <Divider/>
+            {/*<Byline>*/}
+            {/*    Some notes about indoor and outdoor plants ...*/}
+            {/*</Byline>*/}
         </Wrapper>
     );
 }

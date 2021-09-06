@@ -5,28 +5,19 @@ import PlantSlot from './plant-slot';
 import LabelSlot from './label-slot';
 import PageFooter from "../shared/page-footer";
 
-import {Content} from '../shared/styles'
+import {Content, TitleText} from '../shared/styles'
 
 const Wrapper = styled.div`
-        width: 910px
+        //width: 910px;
+    display: flex;  
+    flex-direction: column;
     `;
 
 const CalendarContent = styled(Content)`
-      flex:1;
+    flex:1;
+    padding: 10px;
+    margin: 0 10px;
 `;
-
-const NavItemFooter = styled.div`
-        width: 200px;
-        font-family: 'EB Garamond', serif;
-        color: #607744;
-        justify-content: flex-end;
-        font-size: 16px;
-        min-width: 370px;
-        background-color: #f3f3f3;
-        padding: .5em calc(1.5em + .5vw);
-        border-radius: 11px;
-        margin-top: 2em;
-    `;
 
 export default function PlantCalendar() {
     const plantItems = [
@@ -36,6 +27,7 @@ export default function PlantCalendar() {
 
     return (
         <Wrapper>
+            <TitleText>CALENDAR</TitleText>
             <CalendarContent>
                 <LabelSlot/>
                 {plantItems.map(( a: any, idx: number) =>

@@ -6,17 +6,19 @@ import LabelSlot from './label-slot';
 import PageFooter from "../shared/page-footer";
 
 import {Content, TitleText} from '../shared/styles'
+import GridCalendar from "./grid-calendar";
 
-const Wrapper = styled.div`
-        //width: 910px;
+const Wrapper = styled.div`    
     display: flex;  
     flex-direction: column;
     `;
 
 const CalendarContent = styled(Content)`
-    flex:1;
+  max-width: 910px;
+  margin: 2em auto;
+  //width: 90%;
     padding: 10px;
-    margin: 0 10px;
+    //margin: 0 10px;
 `;
 
 export default function PlantCalendar() {
@@ -28,12 +30,7 @@ export default function PlantCalendar() {
     return (
         <Wrapper>
             <TitleText>CALENDAR</TitleText>
-            <CalendarContent>
-                <LabelSlot/>
-                {plantItems.map(( a: any, idx: number) =>
-                    <PlantSlot key={idx} icon={a.iImage} name={a.name} sun={a.sImage} water={a.wImage} germination={a.germination} spacing={a.spacing}/>
-                )}
-            </CalendarContent>
+            <GridCalendar/>
 
             <PageFooter aName='turkkub' aUrl='https://www.flaticon.com/authors/turkkub' sUrl='https://www.flaticon.com/' sName='Flaticon'/>
         </Wrapper>

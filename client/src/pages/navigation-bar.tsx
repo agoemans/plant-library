@@ -19,6 +19,7 @@ const List = styled.li`
       padding: 10px;
       font-family: 'Mukta', sans-serif;
       color: #d5f2e3;
+      cursor: pointer;
 
       &:first-child {
         margin-left: 10px;

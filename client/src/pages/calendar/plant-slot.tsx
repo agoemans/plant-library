@@ -6,7 +6,7 @@ import Months from './months';
 
 const Wrapper = styled.section`
       display: flex;
-      flex-direction: row;
+      flex-direction: row;      
        border: 1px solid darkgray;
     `;
 

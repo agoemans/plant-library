@@ -30,7 +30,7 @@ export default function GridMonths(props: any) {
         <Wrapper className="table-container" role="table">
             <RowGroup role="rowgroup">
             {months.map( (a: any, idx: number) =>
-                <FlexRow className="flex-row" style={{backgroundColor: `${blockColor}`}}/>
+                <FlexRow key={idx} className="flex-row" style={{backgroundColor: `${blockColor}`}}/>
             )}
             </RowGroup>
         </Wrapper>

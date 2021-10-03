@@ -20,6 +20,8 @@ const Wrapper = styled.div`
 
 const PageContent = styled(Content)`
     flex: 1;
+  margin: 0 auto;
+  width: 80%;
     `;
 
 const NavItem = styled.div`

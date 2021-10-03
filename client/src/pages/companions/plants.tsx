@@ -13,8 +13,9 @@ const Wrapper = styled.div`
     `;
 
 const OuterBox = styled.div`
-        display: flex;
-        flex-direction: row;        
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
     `;
 
 const PlantBox = styled.div`
@@ -23,7 +24,7 @@ const PlantBox = styled.div`
         padding: 10px;
         margin: 10px;
         background-color: #f3f3f3;
-        width: 300px;
+        width: calc(100%/3);
     `;
 
 const TitleBox = styled.div`
@@ -83,6 +84,7 @@ export default function Plants(props: any) {
     const attribs = [
         {name: 'Basil', good: ['Borage', 'Marigold', 'Tomato'], bad: ['Cucumber', 'Fennel', 'Sage'], image: '../src/assets/spinach.png'},
         {name: 'Dill', good: ['Cucumber', 'Lettuce', 'Basil'], bad: ['Cilantro', 'Tomato'], image: '../src/assets/spinach.png'},
+        {name: 'Parsley', good: ['Brassicas', 'Tomatoes', 'Peppers'], bad: ['Garlic', 'Onion', 'Lettuce'], image: '../src/assets/spinach.png'},
         {name: 'Parsley', good: ['Brassicas', 'Tomatoes', 'Peppers'], bad: ['Garlic', 'Onion', 'Lettuce'], image: '../src/assets/spinach.png'}
     ];
 

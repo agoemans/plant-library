@@ -1,5 +1,3 @@
-import {MonthsModel} from "./months";
-
 export interface CalendarModel {
     plantId: number;
     plantName: string;
@@ -7,6 +5,9 @@ export interface CalendarModel {
     spacing: string;
     water: string;
     germination: string;
-    calendar: MonthsModel[]
+    calendar: {
+        sow: number[];
+        harvest: number[];
+    }
 }
 

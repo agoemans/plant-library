@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import styled, { keyframes } from 'styled-components';
-import PlantSlot from "./plant-slot";
 import GridMonths from "./grid-months";
-import {Content} from "../shared/styles";
+import {getCalendarItems} from "../../api/routes";
+import {CalendarModel} from "../../../../server/src/models";
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -70,11 +70,16 @@ const ContentText = styled.div `
 `;
 
 export default function GridCalendar(props: any) {
-    const {name, icon, sun, water, germination, spacing} = props;
-    const plantItems = [
-        {name: 'Basil', iImage: '../src/assets/spinach.png', sImage: '../src/assets/sun.png', wImage: '../src/assets/watering-can.png', spacing: '25', germination: '5-7'},
-        {name: 'Dill', iImage: '../src/assets/spinach.png', sImage: '../src/assets/sun.png', wImage:'../src/assets/watering-can.png', spacing: '45', germination: '10-14'}
-    ];
+    const [calendarItems, setCalendarItems] = useState([]);
+
+    useEffect(() => {
+        const cItems: any = async () => {
+            const results = await getCalendarItems();
+            setCalendarItems(JSON.parse(results));
+        };
+
+        cItems();
+    }, [setCalendarItems]);
 
     return (
         <Wrapper className="table-container" role="table">
@@ -86,22 +91,22 @@ export default function GridCalendar(props: any) {
                 <FlexRow className="flex-row" role="columnheader">GERMINATION</FlexRow>
                 <FlexRow className="flex-row" role="columnheader" style={{ width: `calc(100% * 0.5)`}}>CALENDAR</FlexRow>
             </RowGroup>
-            {plantItems.map(( a: any, idx: number) =>
+            {calendarItems.map(( a: CalendarModel, idx: number) =>
                 <RowGroup key={idx} role="rowgroup">
                     <FlexRow className="flex-row" style={{ borderLeft: '1px solid #d9d9d9'}}>
-                        <ContentText>{a.name}</ContentText>
+                        <ContentText>{a.plantName}</ContentText>
                     </FlexRow>
-                    <ImageCell className="flex-row" style={{ backgroundImage: `url(${a.sImage})` }}/>
+                    <ImageCell className="flex-row" style={{ backgroundImage: `url(../src/assets/sun.png)` }}/>
                     <FlexRow className="flex-row" >
                         <BorderedText style={{backgroundColor: '#872c01'}}>{a.spacing}</BorderedText>
                     </FlexRow>
-                    <ImageCell className="flex-row" style={{ backgroundImage: `url(${a.wImage})` }}/>
+                    <ImageCell className="flex-row" style={{ backgroundImage: `url(../src/assets/watering-can.png)` }}/>
                     <FlexRow className="flex-row" >
                         <BorderedText style={{backgroundColor: '#6db721'}}>{a.germination}</BorderedText>
                     </FlexRow>
                     <FlexRow className="flex-row" style={{ width: 'calc(100% * 0.5)', padding: '1em 0.5em'}}>
-                        <GridMonths blockColor='#3A5A40'/>
-                        <GridMonths blockColor='#ba2d0b'/>
+                        <GridMonths blockColor='#3A5A40' bgColor='#8eb487' months={a.calendar.sow}/>
+                        <GridMonths blockColor='#ba2d0b' bgColor='b48794' months={a.calendar.harvest}/>
                     </FlexRow>
                 </RowGroup>
             )}

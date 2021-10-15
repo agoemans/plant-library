@@ -8,10 +8,10 @@ export let calendarItems: CalendarModel[] = [
         spacing: '25',
         water: 'often',
         germination: '5-7',
-        calendar: [
-            {name : 'sow', months: [0,0,1,1,0,0,0,0,0,0,0,0]},
-            {name : 'harvest', months: [0,0,0,0,0,0,1,1,0,0,0,0]}
-        ]
+        calendar: {
+            sow: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+            harvest: [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+        }
     },
     {
         plantId: 2,
@@ -20,10 +20,10 @@ export let calendarItems: CalendarModel[] = [
         spacing: '45',
         water: 'often',
         germination: '10-14',
-        calendar: [
-            {name : 'sow', months: [0,0,1,1,0,0,0,0,0,0,0,0]},
-            {name : 'harvest', months: [0,0,0,0,0,0,1,1,0,0,0,0]}
-        ]
+        calendar: {
+            sow: [0,0,1,1,0,0,0,0,0,0,0,0],
+            harvest: [0,0,0,0,0,0,1,1,0,0,0,0]
+        }
     }
 ]
 

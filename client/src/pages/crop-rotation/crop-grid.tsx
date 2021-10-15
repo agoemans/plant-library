@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import YearlyPlots from "./yearly-plots";
 
+import {getCropRotationList} from "../../api/routes";
+import {RotationModel} from "../../../../server/src/models";
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -26,120 +29,23 @@ const PlotsOuterBox = styled.div`
 `;
 
 export default function CropGrid() {
-    const grid = [
-        {title: 'Year 1',
-            plots: [
-                { caption: 'Legume',
-                  images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}
-                  ]
-                },
-                {caption: 'Root',
-                 images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                {caption: 'Leaf', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                {caption: 'Fruit', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                }
+    const [cropRotationList, setCropRotationList] = useState([]);
 
-        ]},
-        {title: 'Year 2',
-            plots: [
-                {caption: 'Fruit', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                { caption: 'Legume',
-                    images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}
-                    ]
-                },
-                {caption: 'Root',
-                    images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                {caption: 'Leaf', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                }
-            ]},
-        {title: 'Year 3',
-            plots: [
-                {caption: 'Leaf', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                {caption: 'Fruit', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                { caption: 'Legume',
-                    images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}
-                    ]
-                },
-                {caption: 'Root',
-                    images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                }
-            ]},
-        {title: 'Year 4',
-            plots: [
-                {caption: 'Root',
-                    images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                {caption: 'Leaf', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                {caption: 'Fruit', images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]
-                },
-                { caption: 'Legume',
-                    images: [
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                        {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}
-                    ]
-                }
-            ]}
-    ];
+    useEffect(() => {
+        const rotationList: any = async () => {
+            const results = await getCropRotationList();
+            setCropRotationList(JSON.parse(results));
+        };
+
+        rotationList();
+    }, [setCropRotationList]);
 
     return (
         <Wrapper>
             <TitleText>CROP ROTATION</TitleText>
             <PlotsOuterBox>
-                {grid.map(( c: any, idx: number) =>
-                    <YearlyPlots key={idx} title={c.title} plots={c.plots}/>
+                {cropRotationList.map(( c: RotationModel, idx: number) =>
+                    <YearlyPlots key={idx} title={c.yearName} plots={c.plots}/>
                 )}
             </PlotsOuterBox>
         </Wrapper>

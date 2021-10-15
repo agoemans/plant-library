@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 import SinglePlot from "./single-plot";
+import {PlotModel} from "../../../../server/src/models";
 
 const Wrapper = styled.div`
       display: flex;
@@ -33,21 +34,14 @@ const OuterPlotBox = styled.div`
 export default function YearlyPlots(props: any) {
     const {title, plots} = props;
 
-   /* const crops = [
-        {title: 'Year 1', caption: 'Legume', images: [{src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'},
-                {src: '../src/assets/spinach.png'}, {src: '../src/assets/spinach.png'}]}
-    ];*/
-
     return (
         <Wrapper>
             <TitleText>{title}</TitleText>
             <OuterPlotBox>
-                {plots.map(( p: any, idx: number) =>
-                    <SinglePlot key={idx} caption={p.caption} images={p.images}/>
+                {plots.map(( p: PlotModel, idx: number) =>
+                    <SinglePlot key={idx} caption={p.plantName} imageName={p.imageName}/>
                 )}
             </OuterPlotBox>
-            {/*<SinglePlot caption={caption} images={images}/>*/}
         </Wrapper>
     )
 }

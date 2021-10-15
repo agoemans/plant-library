@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import PageFooter from "../pages/shared/page-footer";
 import NavigationBar from "./navigation-bar";
+import {iMenuItems} from "../types";
 
 const Wrapper = styled.div`
         display: flex;
@@ -86,18 +87,18 @@ export default function MainPageContent() {
         history.push('/rotation');
     };
 
-    const menuItems = [
-        { text: 'Planting calendar', cb: () => {onClickCal();}, image: '../src/assets/calendar.png'},
-        { text: 'Companion Plants', cb: () => {onClickSow();}, image: '../src/assets/compantion.png'},
-        { text: 'Crop Rotation', cb: () => {onClickInsects();}, image: '../src/assets/rotation.png'},
+    const menuItems: iMenuItems[] = [
+        { title: 'Planting calendar', cb: () => {onClickCal();}, imageName: 'calendar'},
+        { title: 'Companion Plants', cb: () => {onClickSow();}, imageName: 'companion'},
+        { title: 'Crop Rotation', cb: () => {onClickInsects();}, imageName: 'rotation'},
     ];
     return (
         <Wrapper>
             <PageContent>
-                {menuItems.map(( a: any, idx: number) =>
+                {menuItems.map(( a: iMenuItems, idx: number) =>
                     <NavItem key={idx} onClick={a.cb}>
-                        <NavItemText>{a.text}</NavItemText>
-                        <NavItemImg style={{ backgroundImage: `url(${a.image})` }}/>
+                        <NavItemText>{a.title}</NavItemText>
+                        <NavItemImg style={{ backgroundImage: `url(../src/assets/${a.imageName}.png)` }}/>
                     </NavItem>
                 )}
             </PageContent>

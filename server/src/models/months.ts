@@ -1,4 +1,3 @@
 export interface MonthsModel {
-    name: string;
-    months: number [];
+    [key: string]: number [];
 }

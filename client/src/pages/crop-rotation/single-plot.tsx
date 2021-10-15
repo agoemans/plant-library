@@ -37,15 +37,15 @@ const CaptionBox = styled.div`
     `;
 
 export default function SinglePlot(props: any) {
-    const {caption, images} = props;
+    const {plantName, imageName} = props;
     return (
         <Wrapper>
             <OuterImagesBox>
-                {images.map(( a: any, idx: number) =>
-                    <ImageBox key={idx} style={{ backgroundImage: `url(${a.src})` }}/>
+                {[...Array(9)].map((idx: number) =>
+                    <ImageBox key={idx} style={{ backgroundImage: `url('../src/assets/${imageName}.png')` }}/>
                 )}
             </OuterImagesBox>
-            <CaptionBox>{caption}</CaptionBox>
+            <CaptionBox>{plantName}</CaptionBox>
         </Wrapper>
     )
 }

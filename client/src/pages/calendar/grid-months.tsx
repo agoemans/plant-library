@@ -19,18 +19,13 @@ const FlexRow = styled.div`
 `;
 
 export default function GridMonths(props: any) {
-    const {blockColor} = props;
-    const months = [
-        {name: 'Jan'}, {name: 'Feb'}, {name: 'March'}, {name: 'April'},
-        {name: 'May'}, {name: 'June'}, {name: 'July'}, {name: 'Aug'},
-        {name: 'Sept'},{name: 'Oct'}, {name: 'Nov'}, {name: 'Dec'}
-    ];
+    const {blockColor, months, bgColor} = props;
 
     return (
         <Wrapper className="table-container" role="table">
             <RowGroup role="rowgroup">
-            {months.map( (a: any, idx: number) =>
-                <FlexRow key={idx} className="flex-row" style={{backgroundColor: `${blockColor}`}}/>
+            {months.map( (a: number, idx: number) =>
+                <FlexRow key={idx} className="flex-row" style={{backgroundColor: `${a == 1 ? blockColor: bgColor}`}}/>
             )}
             </RowGroup>
         </Wrapper>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import PageFooter from "../shared/page-footer";
 import {TitleText} from '../shared/styles';
+import {getCompanions} from "../../api/routes";
+import {CompanionsModel} from "../../../../server/src/models";
 
 const Wrapper = styled.div`
         display: flex;
@@ -79,35 +81,37 @@ const List = styled.li`
     `;
 
 export default function Plants(props: any) {
-    const {plantName, image} = props;
+    const [companionList, setCompanionList] = useState([]);
 
-    const attribs = [
-        {name: 'Basil', good: ['Borage', 'Marigold', 'Tomato'], bad: ['Cucumber', 'Fennel', 'Sage'], image: '../src/assets/spinach.png'},
-        {name: 'Dill', good: ['Cucumber', 'Lettuce', 'Basil'], bad: ['Cilantro', 'Tomato'], image: '../src/assets/spinach.png'},
-        {name: 'Parsley', good: ['Brassicas', 'Tomatoes', 'Peppers'], bad: ['Garlic', 'Onion', 'Lettuce'], image: '../src/assets/spinach.png'},
-        {name: 'Parsley', good: ['Brassicas', 'Tomatoes', 'Peppers'], bad: ['Garlic', 'Onion', 'Lettuce'], image: '../src/assets/spinach.png'}
-    ];
+    useEffect(() => {
+        const companions: any = async () => {
+            const results = await getCompanions();
+            setCompanionList(JSON.parse(results));
+        };
+
+        companions();
+    }, [setCompanionList]);
 
     return (
         <Wrapper>
             <TitleText>COMPANIONS</TitleText>
             <OuterBox>
-            {attribs.map(( a: any, idx: number) =>
+            {companionList.map(( a: CompanionsModel, idx: number) =>
                 <PlantBox key={idx}>
                     <TitleBox>
                         <TitleText>
-                            {a.name}
+                            {a.plantName}
                         </TitleText>
-                        <TitleImage style={{ backgroundImage: `url(${a.image})` }}/>
+                        <TitleImage style={{ backgroundImage: `url(../src/assets/${a.imageName}.png)` }}/>
                     </TitleBox>
                     <AttributesBox>
                         <Content style={{ backgroundColor: '#6a994e', marginRight: '1px'}}>
-                            {a.good.map((g: any, idx: number) =>
+                            {a.friend.map((g: string, idx: number) =>
                                 <List key={idx}>{g}</List>
                             )}
                         </Content>
                         <Content style={{ backgroundColor: '#bc4749'}}>
-                            {a.bad.map((g: any, idx: number) =>
+                            {a.foe.map((g: string, idx: number) =>
                                 <List key={idx}>{g}</List>
                             )}
                         </Content>

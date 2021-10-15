@@ -7,36 +7,60 @@ import {
     BrowserRouter as Router
 } from 'react-router-dom';
 
-import MainPage from './pages/main-page';
-import Content from './pages/content';
-import SowingGuide from './pages/sowing/sowing-guide';
-import SinglePlant from './pages/sowing/single-plant';
+import PageHeader from './pages/page-header';
 import PlantCalendar from './pages/calendar/plant-calendar';
+import MainPageContent from "./pages/main-page-content";
+import Plants from "./pages/companions/plants";
+import YearlyPlots from "./pages/crop-rotation/yearly-plots";
+import CropGrid from "./pages/crop-rotation/crop-grid";
+import styled from "styled-components";
+import NavigationBar from "./pages/navigation-bar";
+
+const Wrapper = styled.div`
+  background-color: white;
+  min-width: 76vw;
+  height: 100%;
+`;
+
+const BgImage = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-image: url('../src/assets/veg-background.jpg');
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
 
 export const App = () => {
     const [hasError, setErrors] = useState(false);
 
     return (
         <Router>
-            <div className='app'>
+            <BgImage/>
+            <Wrapper className='app'>
                 <div className='app-content'>
-                    <MainPage/>
+                    <PageHeader/>
+                    <NavigationBar/>
                     <Switch>
-                        <Route path='/sowing'>
-                            <SowingGuide/>
-                        </Route>
-                        <Route path='/plant'>
-                            <SinglePlant/>
+                        <Route path='/companions'>
+                            <Plants/>
                         </Route>
                         <Route path='/calendar'>
                             <PlantCalendar/>
                         </Route>
+                        <Route path='/rotation'>
+                            <CropGrid/>
+                        </Route>
                         <Route path='/'>
-                            <Content/>
+                            <MainPageContent/>
                         </Route>
                     </Switch>
                 </div>
-            </div>
+            </Wrapper>
         </Router>
     );
 };

@@ -69,16 +69,16 @@ const ContentText = styled.div `
     padding: 2% 0;
 `;
 
-export default function GridCalendar(props: any) {
+export default function GridCalendar() {
     const [calendarItems, setCalendarItems] = useState([]);
 
     useEffect(() => {
-        const cItems: any = async () => {
+        const cItems: () => Promise<void> = async () => {
             const results = await getCalendarItems();
             setCalendarItems(JSON.parse(results));
         };
 
-        cItems();
+        cItems().catch(e => console.log(e));
     }, [setCalendarItems]);
 
     return (

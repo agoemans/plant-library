@@ -35,28 +35,8 @@ const List = styled.li`
     `;
 
 
-export default function NavigationBar(props: any) {
-    const [showCalendar, setShowCalendar] = React.useState(false);
-    const [showSowGuide, setSowGuide] = React.useState(false);
-    const [showInsects, setInsects] = React.useState(false);
-    const barNames = ['Home', 'Calendar', 'Companions', 'Rotation'];
+export default function NavigationBar() {
     const history = useHistory();
-
-    const onClickHome = () => {
-        history.push('/');
-    };
-
-    const onClickCalendar = () => {
-        history.push('/calendar');
-    };
-
-    const onClickCompanions = () => {
-        history.push('/companions');
-    };
-
-    const onClickRotation = () => {
-        history.push('/rotation');
-    };
 
     const onClickItem = (title: string) => {
         switch(title){

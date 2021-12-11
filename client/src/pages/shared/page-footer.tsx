@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
+import {iPageFooter} from "../../types";
 
 const Footer = styled.footer`
         width: 100%;       
@@ -25,16 +26,16 @@ const Link = styled.a`
         text-decoration: none;
     `;
 
-export default function PageFooter(props: any) {
-    const {aName, aUrl, sName, sUrl} = props;
+export default function PageFooter(props: iPageFooter) {
+    const {author, authorUrl, siteName, siteUrl} = props;
 
     return (
         <Footer>
             <Para>
                 Icons by
-                <Link href={aUrl} title={aName}> {aName} </Link>
+                <Link href={authorUrl} title={author}> {author} </Link>
                 from
-                <Link href={sUrl} title={sName}> {sName} </Link>
+                <Link href={siteUrl} title={siteName}> {siteName} </Link>
             </Para>
         </Footer>
     );

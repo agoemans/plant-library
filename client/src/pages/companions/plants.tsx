@@ -35,14 +35,6 @@ const TitleBox = styled.div`
         margin: 0 10px 10px 10px;   
     `;
 
-// const TitleText = styled.div`
-//         display: flex;
-//         margin: 10px;
-//         font-family: 'Laila', sans-serif;
-//         font-size: 34px;
-//         justify-content: center;
-//     `;
-
 const TitleImage = styled.div`
         display: flex;
         padding: 10px;
@@ -80,16 +72,16 @@ const List = styled.li`
         border-bottom: 1px solid #f9f9f9;
     `;
 
-export default function Plants(props: any) {
+export default function Plants() {
     const [companionList, setCompanionList] = useState([]);
 
     useEffect(() => {
-        const companions: any = async () => {
+        const companions: () => Promise<void> = async () => {
             const results = await getCompanions();
             setCompanionList(JSON.parse(results));
         };
 
-        companions();
+        companions().catch( e => console.log(e));
     }, [setCompanionList]);
 
     return (
@@ -119,7 +111,7 @@ export default function Plants(props: any) {
                 </PlantBox>
             )}
             </OuterBox>
-            <PageFooter aName='iconixar' aUrl='https://www.flaticon.com/authors/iconixar' sUrl='https://www.flaticon.com/' sName='Flaticon'/>
+            <PageFooter author='iconixar' authorUrl='https://www.flaticon.com/authors/iconixar' siteUrl='https://www.flaticon.com/' siteName='Flaticon'/>
         </Wrapper>
     );
 }

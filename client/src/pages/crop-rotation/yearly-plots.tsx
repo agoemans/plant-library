@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import SinglePlot from "./single-plot";
 import {PlotModel} from "../../../../server/src/models";
+import {iYearlyPlot} from "../../types";
 
 const Wrapper = styled.div`
       display: flex;
@@ -30,8 +31,7 @@ const OuterPlotBox = styled.div`
       flex-wrap: wrap;
 `;
 
-
-export default function YearlyPlots(props: any) {
+export default function YearlyPlots(props: iYearlyPlot) {
     const {title, plots} = props;
 
     return (

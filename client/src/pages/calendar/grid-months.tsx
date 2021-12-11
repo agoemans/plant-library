@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
+import {iGridMonths} from "../../types";
 
 const Wrapper = styled.div`
       box-sizing: border-box;
@@ -18,7 +19,7 @@ const FlexRow = styled.div`
   border: 1px solid lightgrey;
 `;
 
-export default function GridMonths(props: any) {
+export default function GridMonths(props: iGridMonths) {
     const {blockColor, months, bgColor} = props;
 
     return (

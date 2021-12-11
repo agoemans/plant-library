@@ -59,31 +59,17 @@ const NavItemImg = styled.div`
     `;
 
 export default function MainPageContent() {
-    const [showCalendar, setShowCalendar] = React.useState(false);
-    const [showSowGuide, setSowGuide] = React.useState(false);
-    const [showInsects, setInsects] = React.useState(false);
-
     const history = useHistory();
 
     const onClickCal = () => {
-        setShowCalendar(true);
-        setSowGuide(false);
-        setInsects(false);
-        history.push('/calendar');
+       history.push('/calendar');
     };
 
     const onClickSow = () => {
-        setShowCalendar(false);
-        setSowGuide(true);
-        setInsects(false);
         history.push('/companions');
-        console.log('clicked owing');
     };
 
     const onClickInsects = () => {
-        setShowCalendar(false);
-        setSowGuide(false);
-        setInsects(true);
         history.push('/rotation');
     };
 
@@ -102,7 +88,7 @@ export default function MainPageContent() {
                     </NavItem>
                 )}
             </PageContent>
-            <PageFooter aName='iconixar' aUrl='https://www.flaticon.com/authors/iconixar' sUrl='https://www.flaticon.com/' sName='Flaticon'/>
+            <PageFooter author='iconixar' authorUrl='https://www.flaticon.com/authors/iconixar' siteUrl='https://www.flaticon.com/' siteName='Flaticon'/>
         </Wrapper>
     );
 }

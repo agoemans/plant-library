@@ -16,7 +16,7 @@ export default function PlantCalendar() {
             <TitleText>CALENDAR</TitleText>
             <GridCalendar/>
 
-            <PageFooter aName='turkkub' aUrl='https://www.flaticon.com/authors/turkkub' sUrl='https://www.flaticon.com/' sName='Flaticon'/>
+            <PageFooter author='turkkub' authorUrl='https://www.flaticon.com/authors/turkkub' siteUrl='https://www.flaticon.com/' siteName='Flaticon'/>
         </Wrapper>
     );
 }

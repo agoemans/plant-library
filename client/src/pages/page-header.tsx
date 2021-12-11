@@ -56,9 +56,6 @@ export default function PageHeader() {
         <Wrapper onClick={goHome}>
             <Image/>
             <Header>Planting Guide</Header>
-            {/*<Byline>*/}
-            {/*    Some notes about indoor and outdoor plants ...*/}
-            {/*</Byline>*/}
         </Wrapper>
     );
 }

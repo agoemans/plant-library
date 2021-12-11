@@ -32,12 +32,12 @@ export default function CropGrid() {
     const [cropRotationList, setCropRotationList] = useState([]);
 
     useEffect(() => {
-        const rotationList: any = async () => {
+        const rotationList: () => Promise<void> = async () => {
             const results = await getCropRotationList();
             setCropRotationList(JSON.parse(results));
         };
 
-        rotationList();
+        rotationList().catch(e => console.log(e));
     }, [setCropRotationList]);
 
     return (

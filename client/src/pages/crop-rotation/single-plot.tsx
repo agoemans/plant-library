@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
+import {iSinglePlot} from "../../types";
 
 const Wrapper = styled.div`
         display: flex;
@@ -36,8 +37,8 @@ const CaptionBox = styled.div`
         font-family: 'Itim';
     `;
 
-export default function SinglePlot(props: any) {
-    const {plantName, imageName} = props;
+export default function SinglePlot(props: iSinglePlot) {
+    const {caption, imageName} = props;
     return (
         <Wrapper>
             <OuterImagesBox>
@@ -45,7 +46,7 @@ export default function SinglePlot(props: any) {
                     <ImageBox key={idx} style={{ backgroundImage: `url('../src/assets/${imageName}.png')` }}/>
                 )}
             </OuterImagesBox>
-            <CaptionBox>{plantName}</CaptionBox>
+            <CaptionBox>{caption}</CaptionBox>
         </Wrapper>
     )
 }

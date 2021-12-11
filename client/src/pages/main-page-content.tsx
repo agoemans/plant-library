@@ -49,12 +49,12 @@ const NavItemText = styled.div`
 `;
 
 const NavItemImg = styled.div`
-        display: flex;
-        height: 170px;
-        width: 170px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
+    display: flex;
+    height: 170px;
+    width: 170px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     `;
 
 export default function MainPageContent() {

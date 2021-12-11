@@ -4,7 +4,7 @@ import PageFooter from "../shared/page-footer";
 import {TitleText} from '../shared/styles';
 import {getCompanions} from "../../api/routes";
 import {CompanionsModel} from "../../../../server/src/models";
-import {companionAttribution, mainPageAttribution, plantsAttribution} from "../attribution/attribution-data";
+import {companionAttribution} from "../attribution/attribution-data";
 
 const Wrapper = styled.div`
     display: flex;
@@ -59,6 +59,15 @@ const Content = styled.div`
     border-radius: 3%;
 `;
 
+const FriendContent = styled(Content)`
+    margin-right: 1px;
+    background-color: #6a994e;
+`;
+
+const FoeContent = styled(Content)`  
+    background-color: #bc4749;
+`;
+
 const List = styled.li`
     display: flex;
     flex-direction: column;
@@ -94,16 +103,16 @@ export default function Plants() {
                         <TitleImage style={{ backgroundImage: `url(../src/assets/${a.imageName}.png)` }}/>
                     </TitleBox>
                     <AttributesBox>
-                        <Content style={{ backgroundColor: '#6a994e', marginRight: '1px'}}>
+                        <FriendContent>
                             {a.friend.map((g: string, idx: number) =>
                                 <List key={idx}>{g}</List>
                             )}
-                        </Content>
-                        <Content style={{ backgroundColor: '#bc4749'}}>
+                        </FriendContent>
+                        <FoeContent>
                             {a.foe.map((g: string, idx: number) =>
                                 <List key={idx}>{g}</List>
                             )}
-                        </Content>
+                        </FoeContent>
                     </AttributesBox>
                 </PlantBox>
             )}

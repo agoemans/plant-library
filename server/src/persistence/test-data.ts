@@ -24,6 +24,42 @@ export let calendarItems: CalendarModel[] = [
             sow: [0,0,1,1,0,0,0,0,0,0,0,0],
             harvest: [0,0,0,0,0,0,1,1,0,0,0,0]
         }
+    },
+    {
+        plantId: 3,
+        plantName: 'Carrot',
+        sun: 'full',
+        spacing: '1-2',
+        water: 'often',
+        germination: '10-17',
+        calendar: {
+            sow: [0,0,0,1,1,1,1,0,0,0,0,0],
+            harvest: [0,0,0,0,1,1,1,1,1,0,0,0]
+        }
+    },
+    {
+        plantId: 4,
+        plantName: 'Radish',
+        sun: 'full',
+        spacing: '1',
+        water: 'often',
+        germination: '3-10',
+        calendar: {
+            sow: [0,0,1,1,1,1,1,0,0,0,0,0],
+            harvest: [0,0,0,1,1,1,1,1,1,0,0,0]
+        }
+    },
+    {
+        plantId: 4,
+        plantName: 'Onion',
+        sun: 'full',
+        spacing: '1',
+        water: 'often',
+        germination: '7-12',
+        calendar: {
+            sow: [0,0,1,1,0,0,0,0,0,0,0,0],
+            harvest: [0,0,0,0,0,0,0,1,1,1,0,0]
+        }
     }
 ]
 
@@ -44,10 +80,24 @@ export let companionPlants: CompanionsModel[] = [
     },
     {
         plantId: 3,
-        plantName: 'Parsley',
-        imageName: 'parsley',
-        friend: ['Brassicas', 'Tomatoes', 'Peppers'],
-        foe: ['Garlic', 'Onion', 'Lettuce']
+        plantName: 'Tomato',
+        imageName: 'spinach',
+        friend: ['Basil', 'Marigold', 'Onion'],
+        foe: ['Brassica', 'Dill', 'Potatoes']
+    },
+    {
+        plantId: 3,
+        plantName: 'Peas',
+        imageName: 'spinach',
+        friend: ['Carrot', 'Radish', 'Turnip'],
+        foe: ['Chives', 'Garlic', 'Onion']
+    },
+    {
+        plantId: 3,
+        plantName: 'Carrots',
+        imageName: 'spinach',
+        friend: ['Lettuce', 'Radish', 'Peas'],
+        foe: ['Tomatoes', 'Dill', 'Potatoes']
     },
 ]
 

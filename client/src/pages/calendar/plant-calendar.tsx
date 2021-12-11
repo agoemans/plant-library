@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import PageFooter from "../shared/page-footer";
 
 import {TitleText} from '../shared/styles'
 import GridCalendar from "./grid-calendar";
+import {calendarAttribution} from "../attribution/attribution-data";
 
 const Wrapper = styled.div`    
     display: flex;  
@@ -11,12 +12,14 @@ const Wrapper = styled.div`
     `;
 
 export default function PlantCalendar() {
+    const {author, authorUrl, siteName, siteUrl} = calendarAttribution;
+
     return (
         <Wrapper>
             <TitleText>CALENDAR</TitleText>
             <GridCalendar/>
 
-            <PageFooter author='turkkub' authorUrl='https://www.flaticon.com/authors/turkkub' siteUrl='https://www.flaticon.com/' siteName='Flaticon'/>
+            <PageFooter author={author} authorUrl={authorUrl} siteUrl={siteUrl} siteName={siteName}/>
         </Wrapper>
     );
 }

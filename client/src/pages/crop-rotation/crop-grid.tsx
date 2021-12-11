@@ -5,6 +5,8 @@ import YearlyPlots from "./yearly-plots";
 
 import {getCropRotationList} from "../../api/routes";
 import {RotationModel} from "../../../../server/src/models";
+import PageFooter from "../shared/page-footer";
+import {companionAttribution, rotationAttribution} from "../attribution/attribution-data";
 
 const Wrapper = styled.div`
     display: flex;
@@ -30,6 +32,7 @@ const PlotsOuterBox = styled.div`
 
 export default function CropGrid() {
     const [cropRotationList, setCropRotationList] = useState([]);
+    const {author, authorUrl, siteName, siteUrl} = rotationAttribution;
 
     useEffect(() => {
         const rotationList: () => Promise<void> = async () => {
@@ -48,6 +51,7 @@ export default function CropGrid() {
                     <YearlyPlots key={idx} title={c.yearName} plots={c.plots}/>
                 )}
             </PlotsOuterBox>
+            <PageFooter author={author} authorUrl={authorUrl} siteUrl={siteUrl} siteName={siteName}/>
         </Wrapper>
     )
 }

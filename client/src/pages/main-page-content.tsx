@@ -8,6 +8,7 @@ import {
 import PageFooter from "../pages/shared/page-footer";
 import NavigationBar from "./navigation-bar";
 import {iMenuItems} from "../types";
+import {mainPageAttribution} from "./attribution/attribution-data";
 
 const Wrapper = styled.div`
         display: flex;
@@ -59,6 +60,7 @@ const NavItemImg = styled.div`
     `;
 
 export default function MainPageContent() {
+    const {author, authorUrl, siteName, siteUrl} = mainPageAttribution;
     const history = useHistory();
 
     const onClickCal = () => {
@@ -88,7 +90,7 @@ export default function MainPageContent() {
                     </NavItem>
                 )}
             </PageContent>
-            <PageFooter author='iconixar' authorUrl='https://www.flaticon.com/authors/iconixar' siteUrl='https://www.flaticon.com/' siteName='Flaticon'/>
+            <PageFooter author={author} authorUrl={authorUrl} siteUrl={siteUrl} siteName={siteName}/>
         </Wrapper>
     );
 }

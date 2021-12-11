@@ -81,21 +81,21 @@ export let companionPlants: CompanionsModel[] = [
     {
         plantId: 3,
         plantName: 'Tomato',
-        imageName: 'spinach',
+        imageName: 'tomato',
         friend: ['Basil', 'Marigold', 'Onion'],
         foe: ['Brassica', 'Dill', 'Potatoes']
     },
     {
         plantId: 3,
         plantName: 'Peas',
-        imageName: 'spinach',
+        imageName: 'green-peas',
         friend: ['Carrot', 'Radish', 'Turnip'],
         foe: ['Chives', 'Garlic', 'Onion']
     },
     {
         plantId: 3,
         plantName: 'Carrots',
-        imageName: 'spinach',
+        imageName: 'carrot',
         friend: ['Lettuce', 'Radish', 'Peas'],
         foe: ['Tomatoes', 'Dill', 'Potatoes']
     },
@@ -110,22 +110,22 @@ export let rotationCrops: RotationModel[] = [
             {
                 plotId: 11,
                 plantName: 'Legume',
-                imageName: 'spinach'
+                imageName: 'green-peas'
             },
             {
                 plotId: 12,
                 plantName: 'Root',
-                imageName: 'spinach'
+                imageName: 'onion'
             },
             {
                 plotId: 13,
                 plantName: 'Leaf',
-                imageName: 'spinach'
+                imageName: 'lettuce'
             },
             {
                 plotId: 14,
                 plantName: 'Fruit',
-                imageName: 'spinach'
+                imageName: 'apple'
             }
         ]
     },
@@ -136,22 +136,22 @@ export let rotationCrops: RotationModel[] = [
             {
                 plotId: 14,
                 plantName: 'Fruit',
-                imageName: 'spinach'
+                imageName: 'apple'
             },
             {
                 plotId: 11,
                 plantName: 'Legume',
-                imageName: 'spinach'
+                imageName: 'green-peas'
             },
             {
                 plotId: 12,
                 plantName: 'Root',
-                imageName: 'spinach'
+                imageName: 'onion'
             },
             {
                 plotId: 13,
                 plantName: 'Leaf',
-                imageName: 'spinach'
+                imageName: 'lettuce'
             }
         ]
     },
@@ -162,22 +162,22 @@ export let rotationCrops: RotationModel[] = [
             {
                 plotId: 13,
                 plantName: 'Leaf',
-                imageName: 'spinach'
+                imageName: 'lettuce'
             },
             {
                 plotId: 14,
                 plantName: 'Fruit',
-                imageName: 'spinach'
+                imageName: 'apple'
             },
             {
                 plotId: 11,
                 plantName: 'Legume',
-                imageName: 'spinach'
+                imageName: 'green-peas'
             },
             {
                 plotId: 12,
                 plantName: 'Root',
-                imageName: 'spinach'
+                imageName: 'onion'
             }
         ]
     },
@@ -188,22 +188,22 @@ export let rotationCrops: RotationModel[] = [
             {
                 plotId: 12,
                 plantName: 'Root',
-                imageName: 'spinach'
+                imageName: 'onion'
             },
             {
                 plotId: 13,
                 plantName: 'Leaf',
-                imageName: 'spinach'
+                imageName: 'lettuce'
             },
             {
                 plotId: 14,
                 plantName: 'Fruit',
-                imageName: 'spinach'
+                imageName: 'apple'
             },
             {
                 plotId: 11,
                 plantName: 'Legume',
-                imageName: 'spinach'
+                imageName: 'green-peas'
             }
         ]
     }

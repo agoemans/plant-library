@@ -4,6 +4,7 @@ import PageFooter from "../shared/page-footer";
 import {TitleText} from '../shared/styles';
 import {getCompanions} from "../../api/routes";
 import {CompanionsModel} from "../../../../server/src/models";
+import {companionAttribution, mainPageAttribution, plantsAttribution} from "../attribution/attribution-data";
 
 const Wrapper = styled.div`
         display: flex;
@@ -74,6 +75,7 @@ const List = styled.li`
 
 export default function Plants() {
     const [companionList, setCompanionList] = useState([]);
+    const {author, authorUrl, siteName, siteUrl} = companionAttribution;
 
     useEffect(() => {
         const companions: () => Promise<void> = async () => {
@@ -111,7 +113,7 @@ export default function Plants() {
                 </PlantBox>
             )}
             </OuterBox>
-            <PageFooter author='iconixar' authorUrl='https://www.flaticon.com/authors/iconixar' siteUrl='https://www.flaticon.com/' siteName='Flaticon'/>
+            <PageFooter author={author} authorUrl={authorUrl} siteUrl={siteUrl} siteName={siteName}/>
         </Wrapper>
     );
 }

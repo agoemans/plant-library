@@ -11,44 +11,42 @@ import {iMenuItems} from "../types";
 import {mainPageAttribution} from "./attribution/attribution-data";
 
 const Wrapper = styled.div`
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        //margin: 10px;
-        //width: 660px;
-        margin: 0 100px;
-        min-height: 75vh;
-    `;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 0 100px;
+    min-height: 75vh;
+`;
 
 const PageContent = styled(Content)`
     flex: 1;
-  margin: 0 auto;
-  width: 80%;
-    `;
+    margin: 0 auto;
+    width: 80%;
+`;
 
 const NavItem = styled.div`
-        display: flex;
-        margin: 5px;
-        cursor: pointer;
-
-        &:hover {
-            transform: scale(1.04);
-            color:#d4d700;
-        }
-
-        &:nth-child(2){
-            flex-direction: row-reverse;
-        }
-    `;
+    display: flex;
+    margin: 5px;
+    cursor: pointer;
+    
+    &:hover {
+        transform: scale(1.04);
+        color:#d4d700;
+    }
+    
+    &:nth-child(2){
+        flex-direction: row-reverse;
+    }
+`;
 
 const NavItemText = styled.div`
-        display: flex;
-        padding: 10px;
-        margin: 10px;
-        align-items : center;
-        font-family: 'Itim';
-        font-size: 18px;
-    `;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    align-items : center;
+    font-family: 'Itim';
+    font-size: 18px;
+`;
 
 const NavItemImg = styled.div`
         display: flex;

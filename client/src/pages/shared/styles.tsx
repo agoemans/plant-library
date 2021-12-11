@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Content = styled.div`
-        display: flex;
-        flex-direction: column;
-    `;
+    display: flex;
+    flex-direction: column;
+`;
 
 const TitleText = styled.div`
     display: flex;

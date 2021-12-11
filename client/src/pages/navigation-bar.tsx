@@ -7,32 +7,32 @@ import {
 import {NavigationItems} from './shared/navigation-items'
 
 const Wrapper = styled.div`
-      display: flex;
-      flex-direction: row;      
-      background-color: #28965a;
-    `;
+    display: flex;
+    flex-direction: row;      
+    background-color: #28965a;
+`;
 
 const List = styled.li`
-      display: flex;
-      align-items: center;
-      font-size: 18px;
-      padding: 10px;
-      font-family: 'Mukta', sans-serif;
-      color: #d5f2e3;
-      cursor: pointer;
-
-      &:first-child {
-        margin-left: 10px;
-      }
-
-      &.active {
-        font-weight: bold;
-        color: #ccff33;
-      }
-      &:hover {
-        color: #ccff33;
-      }
-    `;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px;
+    font-family: 'Mukta', sans-serif;
+    color: #d5f2e3;
+    cursor: pointer;
+    
+    &:first-child {
+      margin-left: 10px;
+    }
+    
+    &.active {
+      font-weight: bold;
+      color: #ccff33;
+    }
+    &:hover {
+      color: #ccff33;
+    }
+`;
 
 
 export default function NavigationBar() {

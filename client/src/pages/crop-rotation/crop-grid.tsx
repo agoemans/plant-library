@@ -6,14 +6,11 @@ import YearlyPlots from "./yearly-plots";
 import {getCropRotationList} from "../../api/routes";
 import {RotationModel} from "../../../../server/src/models";
 import PageFooter from "../shared/page-footer";
-import {companionAttribution, rotationAttribution} from "../attribution/attribution-data";
+import {rotationAttribution} from "../attribution/attribution-data";
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    //padding: 10px;
-    //margin: 10px;
-    //max-width: 150px;  
 `;
 
 const TitleText = styled.div`
@@ -25,9 +22,9 @@ const TitleText = styled.div`
 `;
 
 const PlotsOuterBox = styled.div`
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `;
 
 export default function CropGrid() {

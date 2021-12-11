@@ -7,71 +7,66 @@ import {CompanionsModel} from "../../../../server/src/models";
 import {companionAttribution, mainPageAttribution, plantsAttribution} from "../attribution/attribution-data";
 
 const Wrapper = styled.div`
-        display: flex;
-        flex-direction: column;
-        //padding: 10px;
-        //margin: 10px;
-        //width: 660px;
-        //min-height: 75vh;
-    `;
+    display: flex;
+    flex-direction: column;
+`;
 
 const OuterBox = styled.div`
     display: flex;
     flex-direction: row;
     padding: 0.5em;
-    `;
+`;
 
 const PlantBox = styled.div`
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin: 10px;
-        background-color: #f3f3f3;
-        width: calc(100%/3);
-    `;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f3f3f3;
+    width: calc(100%/3);
+`;
 
 const TitleBox = styled.div`
-        display: flex;
-        flex-direction: column;        
-        margin: 0 10px 10px 10px;   
-    `;
+    display: flex;
+    flex-direction: column;        
+    margin: 0 10px 10px 10px;   
+`;
 
 const TitleImage = styled.div`
-        display: flex;
-        padding: 10px;
-        margin: 10px;
-        height: 60px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;  
-    `;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;  
+`;
 
 const AttributesBox = styled.div`
-        display: flex;
-        flex-direction: row;
-        flex: 1;
-    `;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+`;
 
 const Content = styled.div`
-        display: flex;
-        flex-direction: column;
-        //padding: 15px;        
-        font-family: 'Fjalla One', sans-serif;
-        color: white;
-        text-transform: uppercase;
-        min-width: 100px;
-        flex: 1 1 50%;
-    `;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    min-width: 100px;
+    flex: 1 1 50%;
+    border-radius: 3%;
+`;
 
 const List = styled.li`
-        display: flex;
-        flex-direction: column;
-        //margin: 10px 0;
-        align-items: center;
-        font-size: 18px;
-        padding:15px;
-        border-bottom: 1px solid #f9f9f9;
-    `;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    padding:15px;
+    border-bottom: 1px solid #f9f9f9;
+`;
 
 export default function Plants() {
     const [companionList, setCompanionList] = useState([]);

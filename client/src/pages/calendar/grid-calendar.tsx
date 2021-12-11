@@ -6,51 +6,70 @@ import {getCalendarItems} from "../../api/routes";
 import {CalendarModel} from "../../../../server/src/models";
 
 const Wrapper = styled.div`
-  box-sizing: border-box;
-      display: block;
-      margin: 2em auto;
-      width: 90%;
-    `;
-
-const FlexRow = styled.div`
-      width: calc((100% * 0.5) / 5);
-      text-align: center;
-      padding: 0.5em 0.5em;
-      border-right: solid 1px #d9d9d9;
-      border-bottom: solid 1px #d9d9d9;
-  font-family: 'Mukta', sans-serif;
-  font-size: 0.9em;
+    box-sizing: border-box;
+    display: block;
+    margin: 2em auto;
+    width: 90%;
 `;
 
 const RowGroup = styled.div`
-  display: flex;
-  border: 1px solid darkgray;
-  transition: 0.5s;
-
-  &:first-of-type {
-
-    .flex-row {
-      width: calc((100% * 0.5) / 5);
-      padding: 0.5em 0.5em;
-      background: #f0ead2;
-      color: #2b9348;
-      justify-content: center;
-      font-family: 'Mukta', sans-serif;
-      font-size: 0.9em;
-      font-weight: bold;
-    }
-  }      
+    display: flex;
+    border: 1px solid darkgray;
+    transition: 0.5s;
 `;
 
-const ImageCell = styled(FlexRow)`
+const Row = styled.div`
+    width: calc((100% * 0.5) / 5);
+    text-align: center;
+    padding: 0.5em 0.5em;
+    border-right: solid 1px #d9d9d9;
+    border-bottom: solid 1px #d9d9d9;
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.9em;
+`;
+
+const HeaderRow = styled(Row) `
+    width: calc((100% * 0.5) / 5);
+    padding: 0.5em 0.5em;
+    background: #f0ead2;
+    color: #2b9348;
+    justify-content: center;
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.9em;
+    font-weight: bold;
+  
+    &:last-child {
+     width: calc(100% * 0.5);
+    }
+`;
+
+const ContentRow = styled(Row) `
+      &:first-child {
+        border-left: 1px solid #d9d9d9;
+      }
+      &:last-child {
+         width: calc(100% * 0.5);
+        padding: 1em 0.5em;
+      }
+`;
+
+const ImageCell = styled(Row)`
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       background-origin: content-box;
       height: 50px;
-    `;
+`;
 
-const BorderedText = styled(FlexRow)`
+const SunImageCell = styled(ImageCell)`
+      background-image: url('../src/assets/sun.png');
+`;
+
+const WaterImageCell = styled(ImageCell)`
+      background-image: url('../src/assets/watering-can.png');
+`;
+
+const BorderedText = styled(Row)`
       font-size: 1.5em;
       text-align: center;
       color: white;
@@ -61,6 +80,14 @@ const BorderedText = styled(FlexRow)`
       justify-content: center;
       min-width: 60px;
       font-family: 'Mukta', sans-serif;
+`;
+
+const MaroonBorder = styled(BorderedText)`
+      background-color: #872c01;
+`;
+
+const GreenBorder = styled(BorderedText)`
+      background-color: #6db721;
 `;
 
 const ContentText = styled.div `
@@ -82,32 +109,32 @@ export default function GridCalendar() {
     }, [setCalendarItems]);
 
     return (
-        <Wrapper className="table-container" role="table">
-            <RowGroup role="rowgroup">
-                <FlexRow className="flex-row first" role="columnheader" >NAME</FlexRow>
-                <FlexRow className="flex-row" role="columnheader">SUN</FlexRow>
-                <FlexRow className="flex-row" role="columnheader">SPACING</FlexRow>
-                <FlexRow className="flex-row" role="columnheader">WATER</FlexRow>
-                <FlexRow className="flex-row" role="columnheader">GERMINATION</FlexRow>
-                <FlexRow className="flex-row" role="columnheader" style={{ width: `calc(100% * 0.5)`}}>CALENDAR</FlexRow>
+        <Wrapper>
+            <RowGroup>
+                <HeaderRow>NAME</HeaderRow>
+                <HeaderRow>SUN</HeaderRow>
+                <HeaderRow>SPACING</HeaderRow>
+                <HeaderRow>WATER</HeaderRow>
+                <HeaderRow>GERMINATION</HeaderRow>
+                <HeaderRow>CALENDAR</HeaderRow>
             </RowGroup>
             {calendarItems.map(( a: CalendarModel, idx: number) =>
-                <RowGroup key={idx} role="rowgroup">
-                    <FlexRow className="flex-row" style={{ borderLeft: '1px solid #d9d9d9'}}>
+                <RowGroup key={idx}>
+                    <ContentRow>
                         <ContentText>{a.plantName}</ContentText>
-                    </FlexRow>
-                    <ImageCell className="flex-row" style={{ backgroundImage: `url(../src/assets/sun.png)` }}/>
-                    <FlexRow className="flex-row" >
-                        <BorderedText style={{backgroundColor: '#872c01'}}>{a.spacing}</BorderedText>
-                    </FlexRow>
-                    <ImageCell className="flex-row" style={{ backgroundImage: `url(../src/assets/watering-can.png)` }}/>
-                    <FlexRow className="flex-row" >
-                        <BorderedText style={{backgroundColor: '#6db721'}}>{a.germination}</BorderedText>
-                    </FlexRow>
-                    <FlexRow className="flex-row" style={{ width: 'calc(100% * 0.5)', padding: '1em 0.5em'}}>
+                    </ContentRow>
+                    <SunImageCell/>
+                    <ContentRow>
+                        <MaroonBorder>{a.spacing}</MaroonBorder>
+                    </ContentRow>
+                    <WaterImageCell/>
+                    <ContentRow>
+                        <GreenBorder>{a.germination}</GreenBorder>
+                    </ContentRow>
+                    <ContentRow>
                         <GridMonths blockColor='#3A5A40' bgColor='#8eb487' months={a.calendar.sow}/>
                         <GridMonths blockColor='#ba2d0b' bgColor='b48794' months={a.calendar.harvest}/>
-                    </FlexRow>
+                    </ContentRow>
                 </RowGroup>
             )}
         </Wrapper>

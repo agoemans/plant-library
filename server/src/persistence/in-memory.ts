@@ -9,15 +9,11 @@ export class InMemory implements Repository {
 
     companionPlants: CompanionsModel[]  = companionPlants;
 
-    cropRotationlist: RotationModel[] = rotationCrops;
-
-    query = ( sql: string, args?: any ): Promise<unknown> => {
-        return ;
-    };
+    cropRotationList: RotationModel[] = rotationCrops;
 
     getCalendarItems = async () => this.calendarItems;
 
     getCompanionPlants = async () => this.companionPlants;
 
-    getCropRotationList = async () => this.cropRotationlist;
+    getCropRotationList = async () => this.cropRotationList;
 }

@@ -1,5 +1,3 @@
-import {Companion} from "./companion";
-
 export interface CompanionsModel {
     plantId: number;
     plantName: string;

@@ -100,7 +100,7 @@ export default function Plants() {
                         <TitleText>
                             {a.plantName}
                         </TitleText>
-                        <TitleImage style={{ backgroundImage: `url(../src/assets/${a.imageName}.png)` }}/>
+                        <TitleImage style={{ backgroundImage: `url(./assets/${a.imageName}.png)` }}/>
                     </TitleBox>
                     <AttributesBox>
                         <FriendContent>

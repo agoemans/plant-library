@@ -62,11 +62,11 @@ const ImageCell = styled(Row)`
 `;
 
 const SunImageCell = styled(ImageCell)`
-      background-image: url('../src/assets/sun.png');
+      background-image: url('./assets/sun.png');
 `;
 
 const WaterImageCell = styled(ImageCell)`
-      background-image: url('../src/assets/watering-can.png');
+      background-image: url('./assets/watering-can.png');
 `;
 
 const BorderedText = styled(Row)`

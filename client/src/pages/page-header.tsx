@@ -25,13 +25,13 @@ const Header = styled.div`
 `;
 
 const Image = styled.div`
-    display: flex;
-    height: 48px;
-    width: 48px;
-    background-size: cover;
-    background-image: url('../../src/assets/header-icon.png');
-    background-repeat: no-repeat;
-    margin-right: 15px;
+  display: flex;
+  height: 48px;
+  width: 48px;
+  background-size: cover;
+  background-image: url('./assets/header-icon.png');
+  background-repeat: no-repeat;
+  margin-right: 15px;
 `;
 
 export default function PageHeader() {

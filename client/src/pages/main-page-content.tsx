@@ -84,7 +84,7 @@ export default function MainPageContent() {
                 {menuItems.map(( a: iMenuItems, idx: number) =>
                     <NavItem key={idx} onClick={a.cb}>
                         <NavItemText>{a.title}</NavItemText>
-                        <NavItemImg style={{ backgroundImage: `url(../src/assets/${a.imageName}.png)` }}/>
+                        <NavItemImg style={{ backgroundImage: `url(./assets/${a.imageName}.png)` }}/>
                     </NavItem>
                 )}
             </PageContent>

@@ -6,7 +6,7 @@
     "noImplicitAny": true,
     "outDir": "./_build/",
     "sourceMap": false,
-    "declaration": true,
+    "declaration": false,
     "target": "es6",
     "moduleResolution": "node",
     "skipLibCheck": true

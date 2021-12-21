@@ -42,7 +42,7 @@ export default function SinglePlot(props: iSinglePlot) {
         <Wrapper>
             <OuterImagesBox>
                 {[...Array(9)].map((idx: number) =>
-                    <ImageBox key={idx} style={{ backgroundImage: `url('../src/assets/${imageName}.png')` }}/>
+                    <ImageBox key={idx} style={{ backgroundImage: `url('./assets/${imageName}.png')` }}/>
                 )}
             </OuterImagesBox>
             <CaptionBox>{caption}</CaptionBox>

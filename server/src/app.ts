@@ -1,14 +1,15 @@
 require('dotenv').config();
 
 import express from 'express';
-import {routes} from './routes'
+import {routes} from './routes';
+import serverless from 'serverless-http'
 
 const cors = require('cors');
 const app = express();
 
 const startApp = () => {
         app.use(cors({
-        origin: 'http://localhost:8080',
+        array: ['http://localhost:8080', 'https://plantguideapi.agoemans.com'],
         optionsSuccessStatus: 200
     }));
 
@@ -32,4 +33,5 @@ const createRoutes = () => {
 startApp();
 createRoutes();
 
+exports.handler = serverless(app)
 

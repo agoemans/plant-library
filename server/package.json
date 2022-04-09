@@ -5,7 +5,8 @@
   "scripts": {
     "start": "tsc && node _build/server/src/app.js",
     "build": "webpack",
-    "test": "jest --watch --watchAll",
+    "test": "jest",
+    "test:watch": "jest --watch --watchAll",
     "test-ci": "jest"
   },
   "keywords": [],

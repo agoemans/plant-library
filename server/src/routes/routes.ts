@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import * as controllers from './controllers';
+import { RouteNames } from '../types/route-names';
 
 export interface Route {
     method: 'get' | 'post' | 'delete';
@@ -11,17 +12,17 @@ export interface Route {
 export const routes: Route[] = [
     {
         method: 'get',
-        path: '/api/calendar',
+        path: `/api/${RouteNames.CALENDAR}`,
         handler: controllers.getCalendarItems
     },
     {
         method: 'get',
-        path: '/api/companions',
+        path: `/api/${RouteNames.COMPANIONS}`,
         handler: controllers.getCompanionsPlants
     },
     {
         method: 'get',
-        path: '/api/rotation',
+        path: `/api/${RouteNames.ROTATION}`,
         handler: controllers.getCropRotationList
     },
 ];

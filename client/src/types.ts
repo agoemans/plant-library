@@ -9,6 +9,7 @@ export interface iMenuItems {
     title: string;
     cb: () => void;
     imageName: string;
+    id: string;
 }
 
 export interface iYearlyPlot {

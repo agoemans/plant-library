@@ -24,6 +24,7 @@
     "copy-webpack-plugin": "^6.4.1",
     "jest": "^27.4.4",
     "source-map-loader": "^2.0.2",
+    "supertest": "^6.2.2",
     "ts-jest": "^27.1.1",
     "ts-loader": "^9.2.6",
     "tslint": "^6.1.3",

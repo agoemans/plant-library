@@ -1,5 +1,6 @@
 //todo toggle between production and dev
-const url = "http://localhost:3000";
+// const url = "http://localhost:3000";
+const url = "https://plantguideapi.agoemans.com";
 
 let requestOptions: RequestInit = {
     method: 'POST',

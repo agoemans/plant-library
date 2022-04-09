@@ -59,8 +59,8 @@ export default function NavigationBar() {
 
     return (
         <Wrapper>
-            {navItems.map((item: any, idx: number) =>
-                <List key={idx} onClick={()=>{onClickItem(item.title)}}>
+            {navItems.map((item: any) =>
+                <List key={item.id} onClick={()=>{onClickItem(item.title)}}>
                     {item.title}
                 </List>
             )}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
+import { v4 as uuid } from 'uuid';
+
 import styled from 'styled-components';
 import {Content} from './shared/styles'
 import {
     useHistory,
 } from 'react-router-dom';
 import PageFooter from "../pages/shared/page-footer";
-import NavigationBar from "./navigation-bar";
 import {iMenuItems} from "../types";
 import {mainPageAttribution} from "./attribution/attribution-data";
 
@@ -74,15 +75,15 @@ export default function MainPageContent() {
     };
 
     const menuItems: iMenuItems[] = [
-        { title: 'Planting calendar', cb: () => {onClickCal();}, imageName: 'calendar'},
-        { title: 'Companion Plants', cb: () => {onClickSow();}, imageName: 'companion'},
-        { title: 'Crop Rotation', cb: () => {onClickInsects();}, imageName: 'rotation'},
+        { title: 'Planting calendar', cb: () => {onClickCal();}, imageName: 'calendar', id: 'calendar' },
+        { title: 'Companion Plants', cb: () => {onClickSow();}, imageName: 'companion', id: 'companion' },
+        { title: 'Crop Rotation', cb: () => {onClickInsects();}, imageName: 'rotation', id: 'rotation' },
     ];
     return (
         <Wrapper>
             <PageContent>
-                {menuItems.map(( a: iMenuItems, idx: number) =>
-                    <NavItem key={idx} onClick={a.cb}>
+                {menuItems.map(( a: iMenuItems) =>
+                    <NavItem key={a.id} onClick={a.cb}>
                         <NavItemText>{a.title}</NavItemText>
                         <NavItemImg style={{ backgroundImage: `url(./assets/${a.imageName}.png)` }}/>
                     </NavItem>

@@ -36,29 +36,31 @@ const createRoutes = () => {
 startApp();
 createRoutes();
 
-test("rotation controller works", done => {
-    request(app)
-        .get(`/api/${RouteNames.ROTATION}`)
-        .expect("Content-Type", /json/)
-        .expect(rotationCrops)
-        .expect((res) => {
-            res.body.length = 4
-        })
-        .expect(200, done);
-});
+describe("Should test all the controllers", () => {
+    test("rotation controller works", done => {
+        request(app)
+            .get(`/api/${RouteNames.ROTATION}`)
+            .expect("Content-Type", /json/)
+            .expect(rotationCrops)
+            .expect((res) => {
+                res.body.length = 4
+            })
+            .expect(200, done);
+    });
 
-test("calendar controller works", done => {
-    request(app)
-        .get(`/api/${RouteNames.CALENDAR}`)
-        .expect("Content-Type", /json/)
-        .expect(calendarItems)
-        .expect(200, done);
-});
+    test("calendar controller works", done => {
+        request(app)
+            .get(`/api/${RouteNames.CALENDAR}`)
+            .expect("Content-Type", /json/)
+            .expect(calendarItems)
+            .expect(200, done);
+    });
 
-test("companion controller works", done => {
-    request(app)
-        .get(`/api/${RouteNames.COMPANIONS}`)
-        .expect("Content-Type", /json/)
-        .expect(companionPlants)
-        .expect(200, done);
+    test("companion controller works", done => {
+        request(app)
+            .get(`/api/${RouteNames.COMPANIONS}`)
+            .expect("Content-Type", /json/)
+            .expect(companionPlants)
+            .expect(200, done);
+    });
 });
